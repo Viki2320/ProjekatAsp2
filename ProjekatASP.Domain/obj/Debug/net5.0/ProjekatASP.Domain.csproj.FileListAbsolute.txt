@@ -1,0 +1,12 @@
+C:\Users\Softkick\Desktop\ProjekatZaASP2\ProjekatASP\ProjekatASP.Domain\bin\Debug\net5.0\ProjekatASP.Domain.deps.json
+C:\Users\Softkick\Desktop\ProjekatZaASP2\ProjekatASP\ProjekatASP.Domain\bin\Debug\net5.0\ProjekatASP.Domain.dll
+C:\Users\Softkick\Desktop\ProjekatZaASP2\ProjekatASP\ProjekatASP.Domain\bin\Debug\net5.0\ProjekatASP.Domain.pdb
+C:\Users\Softkick\Desktop\ProjekatZaASP2\ProjekatASP\ProjekatASP.Domain\obj\Debug\net5.0\ProjekatASP.Domain.csproj.AssemblyReference.cache
+C:\Users\Softkick\Desktop\ProjekatZaASP2\ProjekatASP\ProjekatASP.Domain\obj\Debug\net5.0\ProjekatASP.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Softkick\Desktop\ProjekatZaASP2\ProjekatASP\ProjekatASP.Domain\obj\Debug\net5.0\ProjekatASP.Domain.AssemblyInfoInputs.cache
+C:\Users\Softkick\Desktop\ProjekatZaASP2\ProjekatASP\ProjekatASP.Domain\obj\Debug\net5.0\ProjekatASP.Domain.AssemblyInfo.cs
+C:\Users\Softkick\Desktop\ProjekatZaASP2\ProjekatASP\ProjekatASP.Domain\obj\Debug\net5.0\ProjekatASP.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Softkick\Desktop\ProjekatZaASP2\ProjekatASP\ProjekatASP.Domain\obj\Debug\net5.0\ProjekatASP.Domain.dll
+C:\Users\Softkick\Desktop\ProjekatZaASP2\ProjekatASP\ProjekatASP.Domain\obj\Debug\net5.0\refint\ProjekatASP.Domain.dll
+C:\Users\Softkick\Desktop\ProjekatZaASP2\ProjekatASP\ProjekatASP.Domain\obj\Debug\net5.0\ProjekatASP.Domain.pdb
+C:\Users\Softkick\Desktop\ProjekatZaASP2\ProjekatASP\ProjekatASP.Domain\obj\Debug\net5.0\ref\ProjekatASP.Domain.dll
