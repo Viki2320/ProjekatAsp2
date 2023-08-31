@@ -12,11 +12,13 @@ using Newtonsoft.Json;
 using ProjekatASP.Api.Core;
 using ProjekatASP.Api.Extensions;
 using ProjekatASP.Application;
+using ProjekatASP.Application.Email;
 using ProjekatASP.Application.UseCases.Commands;
 using ProjekatASP.Application.UseCases.DTO;
 using ProjekatASP.Application.UseCases.Queries;
 using ProjekatASP.DataAccess;
 using ProjekatASP.Domain;
+using ProjekatASP.Implementation.Email;
 using ProjekatASP.Implementation.Logging;
 using ProjekatASP.Implementation.UseCases.Commands;
 using ProjekatASP.Implementation.UseCases.Queries;
@@ -82,6 +84,11 @@ namespace ProjekatASP.Api
             services.AddTransient<ICreateOrderCommand, EfCreateOrderCommand>();
             services.AddTransient<CreateOrderValidator>();
             services.AddTransient<IGetOrderQuery, EfGetOrderQuery>();
+            services.AddTransient<IChangeOrderStatusCommand, EfChangeOrderStatusCommand>();
+            services.AddTransient<IEmailSender, SmtpEmailSender>();
+            services.AddTransient<IRateCommand, EfRateCommand>();
+            services.AddTransient<InsertRateValidator>();
+            services.AddTransient<IGetRateQuery, EfGetRatingsQuery>();
 
             //services.AddAutoMapper(cfg => {
             //    cfg.CreateMap<CategoryDto, Category>();

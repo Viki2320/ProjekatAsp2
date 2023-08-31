@@ -9,7 +9,8 @@ namespace ProjekatASP.Api.Controllers
     [Authorize]
     public class UserController : ControllerBase
     {
-    
+
+        [HttpGet]
         public IActionResult Get([FromServices] IApplicationUser user)
         {
             return Ok(user);

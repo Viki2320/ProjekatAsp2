@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using FluentValidation;
+using ProjekatASP.Application.Email;
 using ProjekatASP.Application.UseCases.Commands;
 using ProjekatASP.Application.UseCases.DTO;
 using ProjekatASP.DataAccess;
@@ -19,7 +20,7 @@ namespace ProjekatASP.Implementation.UseCases.Commands
         private readonly ProjekatDbContext _context;
         private readonly RegisterUserValidator _validator;
         private readonly IMapper _mapper;
-        //private readonly IEmailSender _sender;
+        
         public int Id => 1;
 
         public string Name => "User registration";
@@ -29,6 +30,7 @@ namespace ProjekatASP.Implementation.UseCases.Commands
             _context = context;
             _validator = validator;
             _mapper = mapper;
+           
         }
 
         public void Execute(RegisterUserDto request)
@@ -42,6 +44,8 @@ namespace ProjekatASP.Implementation.UseCases.Commands
             _context.Users.Add(newUser);
 
             _context.SaveChanges();
+
+           
         }
     }
 }

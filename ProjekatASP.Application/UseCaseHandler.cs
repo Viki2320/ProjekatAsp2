@@ -21,7 +21,7 @@ namespace ProjekatASP.Application
 
         public void HandleCommand<TRequest>(ICommand<TRequest> command, TRequest request)//request su podaci neophodni da bi se komanda izvrsila
         {
-            //_logger.Log(command, _actor, request);
+            _logger.Log(command, _actor, request);
             //Console.WriteLine($"{DateTime.Now}: {_actor.Identity} is trying to execute {command.Name} using data: " + $"{JsonConvert.SerializeObject(request)}");
 
             //if (!_actor.AllowedUseCases.Contains(command.Id))
@@ -35,7 +35,7 @@ namespace ProjekatASP.Application
 
         public TResult HandleQuery<TRequest, TResult>(IQuery<TRequest, TResult> query, TRequest search)
         {
-            //_logger.Log(query, _actor, search);
+            _logger.Log(query, _actor, search);
 
             //if (!_actor.AllowedUseCases.Contains(query.Id))
             //{

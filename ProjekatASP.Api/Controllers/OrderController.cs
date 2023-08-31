@@ -32,5 +32,13 @@ namespace ProjekatASP.Api.Controllers
         {
             return Ok(handler.HandleQuery(query, id));
         }
+
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, [FromBody] ChangeOrderStatusDto dto, [FromServices] IChangeOrderStatusCommand command)
+        {
+            dto.OrderId = id;
+            handler.HandleCommand(command, dto);
+            return NoContent();
+        }
     }
 }
