@@ -89,7 +89,7 @@ namespace ProjekatASP.Api
             services.AddTransient<IRateCommand, EfRateCommand>();
             services.AddTransient<InsertRateValidator>();
             services.AddTransient<IGetRateQuery, EfGetRatingsQuery>();
-
+            services.AddTransient<IDeleteIngredientCommand, EfDeleteIngredientCommand>();
             //services.AddAutoMapper(cfg => {
             //    cfg.CreateMap<CategoryDto, Category>();
             //});

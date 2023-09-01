@@ -8,7 +8,7 @@ namespace ProjekatASP.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [AllowAnonymous]
+    [Authorize]
     public class UseCaseLogsController : ControllerBase
     {
         private readonly UseCaseHandler handler;
