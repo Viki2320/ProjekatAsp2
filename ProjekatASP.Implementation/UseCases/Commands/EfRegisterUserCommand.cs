@@ -35,12 +35,21 @@ namespace ProjekatASP.Implementation.UseCases.Commands
 
         public void Execute(RegisterUserDto request)
         {
-            //var hash = BCrypt.Net.BCrypt.HashPassword(request.Password);
             _validator.ValidateAndThrow(request);
             //throw new NotImplementedException();
 
-            User newUser = _mapper.Map<User>(request);
+            var allowedUseCases = new List<int>
+            {
+                1,5,6,8,13,14,15,17,19,20,21,22,23
+            }
+            .Select(x => new UserUseCase { UseCaseId = x }).ToList();
+            
 
+            var hash = BCrypt.Net.BCrypt.HashPassword(request.Password);
+            request.Password = hash;
+
+            User newUser = _mapper.Map<User>(request);
+            newUser.UserUseCases = allowedUseCases;
             _context.Users.Add(newUser);
 
             _context.SaveChanges();

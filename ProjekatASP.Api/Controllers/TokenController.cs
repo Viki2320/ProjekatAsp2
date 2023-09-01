@@ -21,6 +21,7 @@ namespace ProjekatASP.Api.Controllers
         [AllowAnonymous]
         public IActionResult Post([FromBody] TokenRequest request)
         {
+
             try
             {
                 var token = _manager.MakeToken(request.Username, request.Password);

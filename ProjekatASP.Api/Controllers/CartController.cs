@@ -10,6 +10,7 @@ namespace ProjekatASP.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class CartController : ControllerBase
     {
         private readonly UseCaseHandler handler;
@@ -20,7 +21,6 @@ namespace ProjekatASP.Api.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous]
         public IActionResult Post([FromBody] CartDto dto, [FromServices] IInsertIntoCartCommand command)
         {
             handler.HandleCommand(command, dto);

@@ -15,7 +15,7 @@ namespace ProjekatASP.Domain
         public string Password { get; set; }
 
         public virtual ICollection<Order> Orders { get; set; } = new HashSet<Order>();
-        public virtual ICollection<UserUseCase> UserUseCases { get; set; }
+        public virtual ICollection<UserUseCase> UserUseCases { get; set; } = new HashSet<UserUseCase>();
         public virtual ICollection<Cart> CartLines { get; set; } = new HashSet<Cart>();
     }
 }

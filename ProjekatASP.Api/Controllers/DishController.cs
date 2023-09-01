@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProjekatASP.Application;
 using ProjekatASP.Application.Searches;
@@ -13,6 +14,7 @@ namespace ProjekatASP.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class DishController : ControllerBase
     {
         private UseCaseHandler handler;
@@ -64,13 +66,17 @@ namespace ProjekatASP.Api.Controllers
             return StatusCode(StatusCodes.Status201Created);
         }
 
+        
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Get([FromQuery] DishSearch search, [FromServices] IGetDishesQuery query)
         {
             return Ok(handler.HandleQuery(query, search));
         }
 
+        
         [HttpGet("{id}", Name = "Get")]
+        [AllowAnonymous]
         public IActionResult Get(int id, [FromServices] IGetOneDishQuery query)
         {
             return Ok(handler.HandleQuery(query, id));

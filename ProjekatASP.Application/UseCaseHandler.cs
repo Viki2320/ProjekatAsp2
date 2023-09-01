@@ -24,10 +24,10 @@ namespace ProjekatASP.Application
             _logger.Log(command, _actor, request);
             //Console.WriteLine($"{DateTime.Now}: {_actor.Identity} is trying to execute {command.Name} using data: " + $"{JsonConvert.SerializeObject(request)}");
 
-            //if (!_actor.AllowedUseCases.Contains(command.Id))
-            //{
-            //    throw new UnauthorizedUseCaseException(command, _actor);
-            //}
+            if (!_actor.AllowedUseCases.Contains(command.Id))
+            {
+                throw new UnauthorizedUseCaseException(command, _actor);
+            }
 
             command.Execute(request);
 
@@ -37,10 +37,10 @@ namespace ProjekatASP.Application
         {
             _logger.Log(query, _actor, search);
 
-            //if (!_actor.AllowedUseCases.Contains(query.Id))
-            //{
-            //    throw new UnauthorizedUseCaseException(query, _actor);
-            //}
+            if (!_actor.AllowedUseCases.Contains(query.Id))
+            {
+                throw new UnauthorizedUseCaseException(query, _actor);
+            }
 
             return query.Execute(search);
         }

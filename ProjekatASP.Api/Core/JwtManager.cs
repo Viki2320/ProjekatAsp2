@@ -27,21 +27,19 @@ namespace ASPNedelja3Vezbe.Api.Core
         public string MakeToken(string username, string password) //po username-u i passwordu!!!
         {
             var user = _context.Users.Include(u => u.UserUseCases)
-                .FirstOrDefault(x => x.Username == username && x.Password == password); //pronalazenje korisnika
+                .FirstOrDefault(x => x.Username == username); //pronalazenje korisnika
 
             if (user == null)
             {
                 throw new UnauthorizedAccessException();
             }
 
-            //var valid = BCrypt.Net.BCrypt.Verify(password, user.Password);
+            var valid = BCrypt.Net.BCrypt.Verify(password, user.Password);
 
-            //if (!valid)
-            //{
-            //    throw new UnauthorizedAccessException();
-            //}
-
-            //var useCases = _context.UserUseCase.Where(x => x.UserId == user.UserId).Select(x => x.UseCaseId);
+            if (!valid)
+            {
+                throw new UnauthorizedAccessException();
+            }
 
             var actor = new JwtUser
             {

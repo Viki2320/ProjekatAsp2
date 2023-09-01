@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProjekatASP.Application;
 using ProjekatASP.Application.Searches;
@@ -10,6 +11,7 @@ namespace ProjekatASP.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class IngredientsController : ControllerBase
     {
         private readonly IApplicationUser actor;
@@ -27,8 +29,8 @@ namespace ProjekatASP.Api.Controllers
             handler.HandleCommand(command, dto);
             return StatusCode(StatusCodes.Status201Created);
         }
-
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Get([FromQuery] IngredientSearch search, [FromServices] IGetIngredientsQuery query)
         {
             return Ok(handler.HandleQuery(query, search));
@@ -50,6 +52,7 @@ namespace ProjekatASP.Api.Controllers
         }
 
         [HttpGet("{id}", Name = "GetIngredient")]
+        [AllowAnonymous]
         public IActionResult Get(int id, [FromServices] IGetOneIngredientQuery query)
         {
             return Ok(handler.HandleQuery(query, id));

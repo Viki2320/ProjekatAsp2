@@ -11,6 +11,7 @@ namespace ProjekatASP.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class CategoriesController : ControllerBase
     {
 
@@ -25,14 +26,15 @@ namespace ProjekatASP.Api.Controllers
 
 
         // GET: api/Categories
+        
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Get([FromQuery] CategorySearch search, [FromServices] IGetCategoriesQuery query)
         {
             return Ok(handler.HandleQuery(query, search));
         }
 
         [HttpPost]
-        [Authorize]
         public IActionResult Post([FromBody] CategoryDto dto, [FromServices] ICreateCategoryCommand command)
         {
             handler.HandleCommand(command, dto);
@@ -54,7 +56,9 @@ namespace ProjekatASP.Api.Controllers
             return NoContent();
         }
 
+        
         [HttpGet("{id}", Name = "GetCategory")]
+        [AllowAnonymous]
         public IActionResult Get(int id, [FromServices] IGetOneCategoryQuery query)
         {
             return Ok(handler.HandleQuery(query, id));
