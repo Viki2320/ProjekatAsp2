@@ -38,7 +38,8 @@ namespace ProjekatASP.Implementation.UseCases.Queries
                 var readCart = new GetCartDto
                 {
                     CartLines = cartLinesMapped,
-                    TotalSum = cartLinesMapped.Sum(x => x.Price)
+                    TotalSum = cartLinesMapped.Sum(x => x.Price * x.Quantity) 
+                        
                 };
                 return readCart;
             }
